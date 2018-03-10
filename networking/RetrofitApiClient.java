@@ -3,9 +3,8 @@ package com.creeps.ex_ide.core.networking;
 import android.content.Context;
 import android.util.Log;
 
-import com.creeps.sl_app.R;
-import com.creeps.sl_app.core_services.utils.modal.DataHolder;
-import com.creeps.sl_app.core_services.utils.modal.Student;
+import com.creeps.ex_ide.core.networking.model.Exhibit;
+import com.creeps.ex_ide.core.networking.model.ExhibitWrapper;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -91,13 +90,16 @@ public class RetrofitApiClient implements BaseURLHolder.BaseURLChangedCallback{
 
     /* Overriding baseURLChanged callbacks*/
     @Override
-    public void onBaseURLChanged(String newBaseURL{
+    public void onBaseURLChanged(String newBaseURL){
         this.BASE_URL=newBaseURL;
         this.initRetrofitInstance();
     }
 
 
-    public void
+    public void getExhitbitDetails(Reverberator reverb){
+        Call<ExhibitWrapper> exhiCall=this.mRetrofitApiInterface.getBaseInfo("someapiKey");
+        this.enque(exhiCall,reverb);
+    }
 
     /* Callback fired for every ServerResponse*/
     public interface Reverberator{
