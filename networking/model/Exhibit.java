@@ -13,12 +13,14 @@ public class Exhibit {
     private int id;
     @SerializedName("exhibit_name")
     private String name;
-    @SerializedName("exhibit_image_url")
+    @SerializedName("exhibit_image")
     private String imageURL;
     @SerializedName("exhibit_audio_url")
     private String audioURL;
-    @SerializedName("exhibit_description")
+    @SerializedName("exhibit_desc")
     private String exhibitDescription;
+    @SerializedName("url")
+    private String wikiURL;
 
     //denotes if its contents have been set or not
     transient private boolean isSet;
@@ -26,11 +28,12 @@ public class Exhibit {
         this.id=id;
         this.name=name;
     }
-    public Exhibit(int id,String name,String imageURL,String audioURL,String exhibitDescription){
+    public Exhibit(int id,String name,String imageURL,String audioURL,String exhibitDescription,String url){
         this(id,name);
         this.imageURL=imageURL;
         this.audioURL=audioURL;
         this.exhibitDescription=exhibitDescription;
+        this.wikiURL=url;
     }
 
     public boolean isSet(){return this.isSet;}
@@ -55,8 +58,6 @@ public class Exhibit {
     public String getExhibitDescription() {
         return exhibitDescription;
     }
-
-
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
@@ -65,6 +66,10 @@ public class Exhibit {
         this.audioURL = audioURL;
     }
 
+    public void setWikiURL(String wikiURL){
+        this.wikiURL=wikiURL;
+    }
+    public String getWikiURL(){return this.wikiURL;}
     public void setExhibitDescription(String exhibitDescription) {
         this.exhibitDescription = exhibitDescription;
     }
